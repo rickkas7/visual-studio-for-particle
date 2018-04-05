@@ -355,6 +355,31 @@ Save the file, select **Project - Rescan Solution** and you should be able to se
 
 ![Library header IntelliSense](images/26library.png)
 
+## .ino files
+
+It does not know how to deal with .ino files. Fortunately, you can fairly easily convert your .ino files to .cpp files, and the .cpp files can still be used in Particle CLI, Build, and Dev.
+
+There are basically two things you need to do:
+
+- Include Particle.h
+
+Basically, insert this at the top of your source file:
+
+```
+#include "Particle.h"
+```
+
+- Add forward declarations for functions used before they're implemented.
+
+For example:
+
+```
+/* Function prototypes -------------------------------------------------------*/int tinkerDigitalRead(String pin);int tinkerDigitalWrite(String command);int tinkerAnalogRead(String pin);int tinkerAnalogWrite(String command);/* This function is called once at start up ----------------------------------*/void setup(){    //Setup the Tinker application here	//Register all the Tinker functions    Particle.function("digitalread", tinkerDigitalRead);    Particle.function("digitalwrite", tinkerDigitalWrite);    Particle.function("analogread", tinkerAnalogRead);    Particle.function("analogwrite", tinkerAnalogWrite);}
+```
+
+Note the function prototypes section that defines tinkerDigitalRead, etc. because the functions are implemented at the end of the file.
+
+You could also just move the implementation above setup().
 
 
 ## Known Issues
@@ -376,3 +401,4 @@ The easiest workaround is in the **Error List** select **Open Documents** instea
 ```
     {      "taskName": "task-tinkerbreak",      "appliesTo": "/",      "type": "launch"    }
 ```
+
