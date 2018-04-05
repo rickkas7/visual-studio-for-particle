@@ -129,7 +129,7 @@ The CLI build is well integrated into Visual Studio, however, so clicking on bui
 
 ## Examples
 
-- The tinkerbreak.zip file contains a simple project you can use to test. It contains source as well as the necessary CppProperties.json file and the .vs/tasks.vs.json file.
+- The [tinkerbreak.zip](https://github.com/rickkas7/visual-studio-for-particle/raw/master/tinkerbreak.zip) file contains a simple project you can use to test. It contains source as well as the necessary CppProperties.json file and the .vs/tasks.vs.json file.
 
 - Flagging of common code errors like undefined references while you type. You don't even need to save, let alone build!
 
@@ -184,7 +184,7 @@ The second one specifies all of the things you can do, like compile, flash, etc.
 
 ## CppProperties.json
 
-The CppProperties.json file contains the various compiler settings so IntelliSense works properly. The files goes in the top level of your project folder.
+The [CppProperties.json](https://github.com/rickkas7/visual-studio-for-particle/blob/master/CppProperties.json) file contains the various compiler settings so IntelliSense works properly. The files goes in the top level of your project folder.
 
 - The projects settings menu in the toolbar will get two options: Particle Photon and Particle Electron. (1)
 
