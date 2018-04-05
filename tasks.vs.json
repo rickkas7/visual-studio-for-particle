@@ -1,0 +1,59 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "Build ${relativeFile} Photon",
+      "appliesTo": "*.cpp",
+      "type": "command",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "particle compile photon ${relativeFile} --saveTo firmware.bin"
+      ]
+    },
+    {
+      "taskName": "Build and Flash ${relativeFile} OTA test2",
+      "appliesTo": "*.cpp",
+      "type": "command",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "particle flash test2 ${relativeFile}"
+      ]
+    },
+    {
+      "taskName": "Build ${fileDirname} Photon",
+      "appliesTo": "*.cpp",
+      "type": "command",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "particle compile photon ${fileDirname} --saveTo firmware.bin"
+      ]
+    },
+    {
+      "taskName": "Build and Flash ${fileDirname} OTA test2",
+      "appliesTo": "*.cpp",
+      "type": "command",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "particle flash test2 ${fileDirname}"
+      ]
+    },
+    {
+      "taskName": "Build and Flash ${fileDirname} photon DFU",
+      "appliesTo": "*.cpp",
+      "type": "command",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "particle compile photon ${fileDirname} --saveTo firmware.bin && particle flash --usb firmware.bin"
+      ]
+    },
+    {
+      "taskName": "Flash DFU (--usb)",
+      "appliesTo": "*.bin",
+      "type": "command",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "particle flash --usb firmware.bin"
+      ]
+    }
+  ]
+}
